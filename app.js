@@ -18,9 +18,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+//boostrap
+app.use(express.static(path.join(__dirname, '/node_modules/bootstrap/dist')));
+app.use(express.static(path.join(__dirname, '/node_modules/jquery/')));
+app.use(express.static(path.join(__dirname, '/node_modules/popper.js/dist')));
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
